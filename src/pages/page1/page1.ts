@@ -1,6 +1,6 @@
 import {Component, ViewChild, ElementRef} from '@angular/core';
 import {NavController, Platform} from 'ionic-angular';
-//import {SpeechRecognition} from "ionic-native";
+//import {SpeechRecognition} from 'ionic-native';
 
 @Component({
   selector: 'page-page1',
@@ -27,7 +27,7 @@ export class Page1 {
     }
 
     this.recognition.lang = "en-US";
-    this.recognition.continuous = true;
+    this.recognition.continuous = false;
     this.recognition.interimResults = true;
 
     this.recognition.onstart = () => {
@@ -73,7 +73,7 @@ export class Page1 {
         this.initializeRecognition();
       } else {
         if (!('webkitSpeechRecognition' in window)) {
-          alert('¡API SpeechRecognition no soportada!');
+          alert('API SpeechRecognition não suportada!');
           return;
         }
 
@@ -83,6 +83,8 @@ export class Page1 {
     });
   }
 
+
+//nesse processSpeech eu vou colocar if(texto retornado == texto a testar)
   processSpeech() {
     if (this.recognizing == false) {
       this.recognition.start();

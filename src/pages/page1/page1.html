@@ -3,13 +3,19 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Page One</ion-title>
+    <ion-title>Page1</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <h3>InNOut English</h3>
 
+  <h4>Tente pronunciar a palavra</h4>
+  <div class="card">
+    <div class="item item-text-wrap">
+      palavra
+    </div>
+  </div>
 
   <h4 *ngIf="recognitionResult">What I understand:</h4>
   <ion-spinner *ngIf="recognizing" name="dots" style="font-size: 10rem; text-align: center"></ion-spinner>
@@ -18,6 +24,5 @@
   <ion-fab right bottom>
     <button ion-fab color="{{mic.color}}" (click)="processSpeech()"><ion-icon name="{{mic.icon}}"></ion-icon></button>
   </ion-fab>
-
 
 </ion-content>
